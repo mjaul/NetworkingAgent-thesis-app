@@ -50,8 +50,9 @@ class GradeReport(BaseModel):
     justification: str = Field(description="Explanation of the final grade")
 
 @st.cache_resource
-def setup_agents():
+def setup_agents_v2():
     llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+    # ... (keep your existing prompt code here)
     
     # UPDATED: The prompt is now strictly forbidden from giving feedback or scores during the exam.
     examiner_prompt = (
@@ -88,8 +89,7 @@ def setup_agents():
     
     return examiner, evaluator
 
-examiner_agent, evaluator_agent = setup_agents()
-
+examiner_agent, evaluator_agent = setup_agents_v2()
 # ==========================================
 # 3. SESSION STATE (MEMORY, ROLES & COUNTERS)
 # ==========================================
