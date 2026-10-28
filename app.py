@@ -14,7 +14,7 @@ from pydantic import BaseModel, Field
 # ==========================================
 load_dotenv()
 
-st.set_page_config(page_title="TUKE Networking Exam", page_icon="🎓", layout="wide")
+st.set_page_config(page_title="Computer Networking Exam", page_icon="🎓", layout="wide")
 
 st.markdown("""
     <style>
@@ -116,7 +116,7 @@ if "question_count" not in st.session_state:
 # 4. PORTAL LOGIN (ROLE SELECTOR)
 # ==========================================
 if st.session_state.role is None:
-    st.markdown("<h1 class='main-header'>🎓 omputer Networks Portal</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='main-header'>🎓 Computer Networks Portal</h1>", unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
