@@ -51,7 +51,7 @@ class GradeReport(BaseModel):
 
 @st.cache_resource
 def setup_agents_v2():
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
     # ... (keep your existing prompt code here)
     
     # UPDATED: The prompt is now strictly forbidden from giving feedback or scores during the exam.
