@@ -116,11 +116,11 @@ if "question_count" not in st.session_state:
 # 4. PORTAL LOGIN (ROLE SELECTOR)
 # ==========================================
 if st.session_state.role is None:
-    st.markdown("<h1 class='main-header'>🎓 TUKE Computer Networks Portal</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='main-header'>🎓 omputer Networks Portal</h1>", unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        role_choice = st.radio("Select Portal Access:", ["Student", "Professor"], horizontal=True)
+        role_choice = st.radio("Select Portal Access:", ["Student", "Admin"], horizontal=True)
         st.divider()
         
         if role_choice == "Student":
@@ -141,24 +141,24 @@ if st.session_state.role is None:
                     else:
                         st.error("Please fill out all credential fields to begin.")
                         
-        elif role_choice == "Professor":
-            with st.form("prof_login"):
+        elif role_choice == "Admin":
+            with st.form("admin_login"):
                 st.write("**Administrator Access**")
                 password = st.text_input("Password", type="password")
                 prof_submitted = st.form_submit_button("Access Dashboard")
                 
-                if prof_submitted:
+                if admin_submitted:
                     if password == "tuke_admin":
-                        st.session_state.role = "Professor"
+                        st.session_state.role = "Admin"
                         st.rerun()
                     else:
                         st.error("Incorrect password.")
 
 # ==========================================
-# 5. PROFESSOR DASHBOARD VIEW
+# 5. Admin DASHBOARD VIEW
 # ==========================================
-elif st.session_state.role == "Professor":
-    st.markdown("<h1 class='main-header'>📊 Professor Administration Dashboard</h1>", unsafe_allow_html=True)
+elif st.session_state.role == "Admin":
+    st.markdown("<h1 class='main-header'>📊 Administration Dashboard</h1>", unsafe_allow_html=True)
     
     with st.sidebar:
         st.info("**Logged in as:** System Administrator")
