@@ -141,23 +141,18 @@ if st.session_state.role is None:
                     else:
                         st.error("Please fill out all credential fields to begin.")
                         
-        
+        elif role_choice == "Admin":
+            with st.form("admin_login"):
+                st.write("**Administrator Access**")
+                password = st.text_input("Password", type="password")
+                admin_submitted = st.form_submit_button("Access Dashboard")
                 
-               # Assuming this is inside your login section where user_role is selected
-if user_role == "Admin":
-    # 1. Create a form for the login
-    with st.form("admin_login"):
-        password = st.text_input("Password", type="password")
-        # 2. Define the admin_submitted variable here
-        admin_submitted = st.form_submit_button("Login")
-        
-        # 3. Check it immediately inside the same block
-        if admin_submitted:
-            if password == "tuke_admin":
-                st.session_state.role = "Admin"
-                st.rerun()
-            else:
-                st.error("Incorrect password.")
+                if admin_submitted:
+                    if password == "tuke_admin":
+                        st.session_state.role = "Admin"
+                        st.rerun()
+                    else:
+                        st.error("Incorrect password.")
 
 # ==========================================
 # 5. Admin DASHBOARD VIEW
